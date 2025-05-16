@@ -130,10 +130,6 @@ background-color: rgba(128, 128, 128, 0.238);
   padding-right: 10px; /* prevent scroll bar from hiding text */
   max-height: 100%;
 }
- 
-
- 
-
 
 /* Optional: Add nice scrollbar style (Chrome/WebKit only) */
 #results::-webkit-scrollbar {
@@ -159,15 +155,14 @@ background-color: rgba(128, 128, 128, 0.238);
   border-radius: 30px;
   padding: 5px 10px;
   max-width: 400px;
- 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(135, 88, 88, 0.46);
 }
 
 .search-bar input {
   flex: 1;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
   font-size: 0.9rem;
   padding: 8px 10px;
   outline: none;
