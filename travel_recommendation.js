@@ -1,35 +1,87 @@
 
 const btnSearch = document.getElementById('btnSearch');
 
-    function searchDestination() {
-        const input = document.getElementById('DestinationInput').value.toLowerCase();
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = '';
-        debugger;
-        fetch('travel_recommendation_api.json')
-          .then(response => response.json())
-          .then(data => {
-            const Destination = data.Destinations.find(item => item.name.toLowerCase() === input);
-            if (Destination) {
-                const name = Destination.name;
-            //   const cities = Destination.cities.join(', ');
-            //   const CitiesName = Destination.cities.name.join(', ');
-            //   const CitiesimageUrl = Destination.cities.imageUrl;
-            //   const CitiesDescription = Destination.cities.description.join(', ');
+ 
+function searchRecommendation() {
+  const keyword = document.getElementById('keywordInput').value.toLowerCase();
+  const resultDiv = document.getElementById('results');
+  resultDiv.innerHTML = '';
 
-                resultDiv.innerHTML += `<h2>${name}</h2>`;
-            //   resultDiv.innerHTML += `<p><strong>cities : </strong> ${cities}</p>`;
-            //   resultDiv.innerHTML += `<p><strong>name : </strong> ${CitiesName}</p>`;
-            //   resultDiv.innerHTML += `<img src="${CitiesimageUrl}" alt="hjh">`;
-            //   resultDiv.innerHTML += `<img src="${CitiesDescription}" alt="hjh">`;
-            } else {
-              resultDiv.innerHTML = 'Destination not found.';
-            }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-            resultDiv.innerHTML = 'An error occurred while fetching data.';
-          });
-    }
+  fetch('travel_recommendation_api.json')
+    .then(response => response.json())
+    .then(data => {
+      if (keyword === 'country') {
+        data.countries.forEach(country => {
+country.cities.forEach(city => {
+  resultDiv.innerHTML += `
+    <div class="place-card" style="background-image: url('${city.imageUrl}');">
+      <div class="place-info">
+        <h3>${city.name}</h3>
+        <p>${city.description}</p>
+      </div>
+    </div>
+  `;
+});
+        });
+      } else if (keyword === 'temple') {
+data.temples.forEach(temple => {
+  resultDiv.innerHTML += `
+    <div class="place-card" style="background-image: url('${temple.imageUrl}');">
+      <div class="place-info">
+        <h3>${temple.name}</h3>
+        <p>${temple.description}</p>
+      </div>
+    </div>
+  `;
+});
+      } else if (keyword === 'beach') {
+        data.beaches.forEach(beach => {
+  resultDiv.innerHTML += `
+    <div class="place-card" style="background-image: url('${beach.imageUrl}');">
+      <div class="place-info">
+        <h3>${beach.name}</h3>
+        <p>${beach.description}</p>
+      </div>
+    </div>
+  `;
+        });
+      } else {
+        resultDiv.innerHTML = `<p>Please enter a valid keyword: "beach", "temple", or "country".</p>`;
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      resultDiv.innerHTML = '<p>An error occurred while fetching data.</p>';
+    });
+}
         btnSearch.addEventListener('click', searchDestination);
 
+function clearSearch() {
+  document.getElementById('keywordInput').value = '';
+  document.getElementById('keywordInput').focus();
+  document.getElementById('results').innerHTML = ''; // Optional: clear the results too
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

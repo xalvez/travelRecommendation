@@ -1,0 +1,195 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.place-card {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease;
+}
+
+.place-card:hover {
+  transform: scale(1.05);
+}
+
+.place-info {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  width: 100%;
+}
+
+.place-info h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.place-info p {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.intro-section {
+background-color: rgba(128, 128, 128, 0.238);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.intro-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  animation: slideDown 1s ease forwards;
+}
+
+.intro-text p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  animation: fadeIn 2s ease-in-out 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* sections */
+
+/* Layout container */
+.home-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 600px; 
+ 
+}
+
+/* Keep intro-text animations if you had them */
+.intro-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Right: #results inside .recommendation-section */
+.intro-section,
+.recommendation-section {
+  flex: 1 1 45%;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 150px;
+  background: rgba(255, 255, 255, 0.05); /* subtle glass effect */
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 25px 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: white;
+  overflow: hidden;
+}
+
+.recommendation-section h2 {
+  color: #0078FF;
+  margin-bottom: 20px;
+}
+
+/* Make #results scrollable but section height fixed */
+.recommendation-section #results {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px; /* prevent scroll bar from hiding text */
+  max-height: 100%;
+}
+ 
+
+ 
+
+
+/* Optional: Add nice scrollbar style (Chrome/WebKit only) */
+#results::-webkit-scrollbar {
+  width: 6px;
+}
+#results::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 4px;
+}
+#results::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* search-bar */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  padding: 5px 10px;
+  max-width: 400px;
+ 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0);
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  outline: none;
+  min-width: 0;
+  border-radius: 50px;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+.search-bar button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search-bar button:hover {
+  color: #00f2fe;
+}

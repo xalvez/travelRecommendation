@@ -5,27 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Recommendation</title>
     <link rel="stylesheet" href="./travelReco.css">
+    <link rel="stylesheet" href="./home_page.css">
 </head>
 <body>
-    <div class="bg">
-      <nav><h1>Travel Recommendation</h1>
-    <ul>
-        <li><a href="./travel_recommendation.html" id="home">Home </a></li>
-        <li><a href="./travel_R_contact.html" id="contact">Contact Us </a></li>
-        <li><a href="./travel_about_us.html" id="about">About Us </a></li>
-        <li><input type="text" id="DestinationInput" placeholder="Enter a Destination">  </li>
-        <li><button id='btnSearch'>Search</button>
-      </li>
-    </ul>
-    </nav>
+    <div class="bg"> 
+        <nav class="navbar"> 
+            <h1 class="logo">Travel Recommendation</h1>
+            <ul class="nav-links">
+                <li><a href="./travel_recommendation.html" id="home">Home </a></li>
+                <li><a href="./travel_R_contact.html" id="contact">Contact Us </a></li>
+                <li><a href="./travel_about_us.html" id="about">About Us </a></li>
+                <li>
+                  <div class="search-bar">
+                    <input type="text" id="keywordInput" placeholder="Enter 'beach', 'temple', or 'country'">
+                    <button onclick="searchRecommendation()">Search</button>
+                    <button onclick="clearSearch()" class="clear-btn">Clear</button>
+                  </div>
+                </li>
+            </ul>
+        </nav>
 
-    <div class="searchDestination">
-    <div id="result"></div>
+        <section class="home-layout">
+          <div class="intro-section">
+            <div class="intro-text">
+              <h1>🌍 Welcome to WanderWorld</h1>
+              <p>
+                Discover hand-picked travel recommendations tailored to your interests. Whether you're in the mood for sandy beaches, ancient temples, or cultural adventures, we've got you covered.
+              </p>
+            </div>
+          </div>
+          <div class="recommendation-section">
+            <div id="results">
+              <!-- Recommendations appear here -->
+            </div>
+          </div>
+        </section>
+
     </div>
 
-    </div>
     <script src="./travel_recommendation.js"></script>
 </body>
 </html>
-
-
